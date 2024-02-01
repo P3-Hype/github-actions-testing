@@ -41,6 +41,11 @@ jobs:
          python .github/scripts/chart_bumper.py
          rm -f manifest.yaml
 
+     - name: Set up Git
+       run: |
+         git config --global user.email "srams@cyber-wizard.com"
+         git config --global user.name "Srams-Bertha"
+
      - name: Create Branch
        run: git checkout -b upgrade-helm-charts-minors
 
