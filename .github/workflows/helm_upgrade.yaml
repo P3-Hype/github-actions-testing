@@ -2,8 +2,8 @@ name: Upgrade helm charts minor versions
  
 on:
   push:
-    tags:
-      - 'aoi-*.*.*'
+    branches:
+      - main
 
 
 jobs:
