@@ -46,6 +46,6 @@ jobs:
                        --head upgrade-helm-charts-minors \
                        --title "chore: upgrade helm charts minor versions" \
                        --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
-                       --reviewer P3-Hype/MathiasFM
+                       --reviewer MathiasFM
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
