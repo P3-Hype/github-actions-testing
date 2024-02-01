@@ -36,7 +36,8 @@ jobs:
  
      - name: Run chart bumper script
        run: |
-         python scripts/chart_bumper.py
+         echo "$PWD"
+         python $PWD/scripts/helm-upgrade.py
          rm -f manifest.yaml
  
      - name: Create Pull Request
