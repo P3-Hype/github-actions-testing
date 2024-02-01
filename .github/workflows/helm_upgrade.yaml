@@ -9,9 +9,7 @@ on:
 jobs:
  upgrade-helm-charts:
    runs-on: ubuntu-latest
-   permissions:
-     contents: read
-     packages: write 
+   permissions: write-all
    steps:
      - name: Checkout
        uses: actions/checkout@v4
@@ -48,6 +46,6 @@ jobs:
                        --head upgrade-helm-charts-minors \
                        --title "chore: upgrade helm charts minor versions" \
                        --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
-                       --reviewer MathiasFM
+                       --reviewer P3-Hype/MathiasFM
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
