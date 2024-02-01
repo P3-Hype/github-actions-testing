@@ -51,9 +51,9 @@ jobs:
 
      - name: Commit and Push Changes
        run: |
-         # Make your changes here, for example:
          # - Update Helm charts
-         git commit -am "feat: upgrade helm charts"
+         git add .
+         git commit -m "feat: upgrade helm charts"
          git push origin upgrade-helm-charts-minors
      
      - name: Create Pull Request
