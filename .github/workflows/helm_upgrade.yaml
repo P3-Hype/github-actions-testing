@@ -1,6 +1,7 @@
-name: Upgrade helm charts minor versions
+name: Upgrade Helm charts minor versions
  
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
