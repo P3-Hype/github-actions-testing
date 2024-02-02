@@ -50,8 +50,10 @@ jobs:
          helm_version=$(yq '.name' charts/aoi/Chart.yaml)-$(yq '.version' charts/aoi/Chart.yaml)
          branch=feature/upgrade-helm-charts-minors-$helm_version
          if git ls-remote | grep "$branch"; then
-           echo Checkout existing branch $branch
-           git checkout $branch
+           echo Remove existing branch $branch
+           git branch -D $branch
+           echo Create new branch $branch 
+           git checkout -b $branch
          else
            echo Create new branch $branch
            git checkout -b $branch
