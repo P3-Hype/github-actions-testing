@@ -55,18 +55,19 @@ jobs:
            echo Create new branch $branch
            git checkout -b $branch
          fi
+         echo "{HELM_BRANCH}={$branch}" >> $GITHUB_ENV
 
      - name: Commit and Push Changes
        run: |
          # - Update Helm charts
          git add .
          git commit -m "feat: upgrade helm charts"
-         git push origin upgrade-helm-charts-minors
+         git push origin ${{ env.HELM_BRANCH }}
      
      - name: Create Pull Request
        run: |
          gh pr create --base main \
-                      --head upgrade-helm-charts-minors \
+                      --head ${{ env.HELM_BRANCH }} \
                       --title "chore: upgrade helm charts minor versions" \
                       --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
                       --reviewer MathiasFM
