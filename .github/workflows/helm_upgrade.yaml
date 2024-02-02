@@ -51,7 +51,7 @@ jobs:
          branch=feature/upgrade-helm-charts-minors-$helm_version
          if git ls-remote | grep "$branch"; then
            echo Remove existing branch $branch
-           git branch -D $branch
+           git push origin --delete $branch
            echo Create new branch $branch 
            git checkout -b $branch
          else
