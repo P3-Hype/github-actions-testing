@@ -11,7 +11,7 @@ import traceback
  
 # Add charts here where it is known that higher versions are not
 # yet stable or that you would like to disable automatic upgrades for
-EXCLUDED_CHARTS = []
+EXCLUDED_CHARTS = ["aoi"]
 
 # Inject a BUMP_MAJOR env variable if you would like the script to automatically
 # bump major chart versions too. Make sure you inspect the upgrade instructions before merging!
@@ -42,7 +42,7 @@ def update_chart(path_chart: str):
        manifest = f"""
 sources:
    lastMinorRelease:
-       kind: helmChart
+       kind: helmchart
        spec:
            url: "{dependency["repository"]}"
            name: "{dependency["name"]}"
@@ -51,7 +51,7 @@ conditions: {{}}
 targets:
    chart:
        name: Bump Chart dependencies
-       kind: helmChart
+       kind: helmchart
        spec:
            Name: "{path_chart}"
            file: "Chart.yaml"

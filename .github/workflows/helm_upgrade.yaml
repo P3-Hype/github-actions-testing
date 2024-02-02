@@ -2,9 +2,6 @@ name: Upgrade Helm charts minor versions
  
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 
 jobs:
@@ -40,7 +37,6 @@ jobs:
        run: |
          echo "$PWD"
          python .github/scripts/chart_bumper.py
-         echo "$version"
          rm -f manifest.yaml
 
      - name: Set up Git
@@ -49,7 +45,16 @@ jobs:
          git config --global user.name "Srams-Bertha"
 
      - name: Create Branch
-       run: git checkout -b upgrade-helm-charts-minors
+       run: |
+         helm_version=$(yq '.name' charts/aoi/Chart.yaml)-$(yq '.version' charts/aoi/Chart.yaml)
+         branch=feature/upgrade-helm-charts-minors-$helm_version
+         if git ls-remote | grep "$branch"; then
+           echo Checkout existing branch $branch
+           git checkout $branch
+         else
+           echo Create new branch $branch
+           git checkout -b $branch
+         fi
 
      - name: Commit and Push Changes
        run: |
@@ -61,9 +66,9 @@ jobs:
      - name: Create Pull Request
        run: |
          gh pr create --base main \
-                       --head upgrade-helm-charts-minors \
-                       --title "chore: upgrade helm charts minor versions" \
-                       --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
-                       --reviewer MathiasFM
+                      --head upgrade-helm-charts-minors \
+                      --title "chore: upgrade helm charts minor versions" \
+                      --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
+                      --reviewer MathiasFM
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
