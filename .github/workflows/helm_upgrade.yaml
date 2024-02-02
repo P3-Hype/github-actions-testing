@@ -68,9 +68,9 @@ jobs:
      - name: Create Pull Request
        run: |
          gh pr create --base main \
-                      --head ${{ env.HELM_BRANCH }} \
-                      --title "chore: upgrade helm charts minor versions" \
-                      --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
-                      --reviewer MathiasFM
+                       --head ${{ env.HELM_BRANCH }} \
+                       --title "chore: upgrade helm charts minor versions" \
+                       --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
+                       --reviewer MathiasFM
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
