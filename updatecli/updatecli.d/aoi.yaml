@@ -14,12 +14,12 @@ sources:
 
 # Defines condition that must pass in order to update targets
 conditions:
-  dockerImage:
+  docker:
     name: 'Check that docker.io/victoriametrics/vmagent:{{ source "aoi" }} is published'
     kind: "dockerimage"
     spec:
-      image: "docker.io/victoriametrics/vmagent"
-      architecture: "amd64"
+      image: "victoriametrics/vmagent"
+      architecture: "linux/amd64"
 
 
 # Defines what needs to be udpated if needed
