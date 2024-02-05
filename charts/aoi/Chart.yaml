@@ -10,7 +10,7 @@ dependencies:
     condition: grafana.enabled
   - name: victoria-metrics-single
     alias: victoria-metrics-single-1
-    version: 0.9.12
+    version: 0.9.15
     repository: https://victoriametrics.github.io/helm-charts/
   - name: victoria-metrics-single
     alias: victoria-metrics-single-2
