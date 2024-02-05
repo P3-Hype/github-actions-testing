@@ -25,7 +25,7 @@ targets:
   imageTag:
     name: "Update victoriametrics/vmagent version in chart aoi"
     kind: "yaml"
-    scmid: "helm-charts"
+    scmid: "default"
     spec:
       file: "charts/aoi.values.yaml"
       key: "$.prometheus.aoi.tag"
