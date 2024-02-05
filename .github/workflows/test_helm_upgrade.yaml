@@ -27,7 +27,7 @@ jobs:
        uses: updatecli/updatecli-action@v2
  
      - name: Check for updates to apply
-       run: echo "${{ env.GITHUB_ACTOR }}"
+       run: "updatecli apply --config ./updatecli/updatecli.d --values ./updatecli/values.yaml"
        env:
          UPDATECLI_GITHUB_ACTOR: "Srams-Bertha"
          UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
