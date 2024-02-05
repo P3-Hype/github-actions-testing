@@ -1,5 +1,5 @@
 ---
-name: "Bump aoi version"
+name: "Bump aoi test version"
 
 scms:
   helm-charts:
