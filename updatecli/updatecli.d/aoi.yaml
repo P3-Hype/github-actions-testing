@@ -40,3 +40,13 @@ scms:
       username: "{{ .github.default.username }}"
       branch: "{{ .github.default.branch }}"
     disabled: false
+
+# Define pullrequest configuration if one needs to be created
+actions:
+  helm-charts:
+    kind: "github/pullrequest"
+    scmid: "helm-charts"
+    spec:
+      labels:
+        - "dependencies"
+        - "aoi"
