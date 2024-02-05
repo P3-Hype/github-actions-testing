@@ -1,0 +1,44 @@
+---
+name: "Bump aoi version"
+
+scms:
+  helm-charts:
+    kind: "github"
+    spec:
+      user: "{{ .github.default.user }}"
+      email: "{{ .github.default.email }}"
+      owner: "{{ .github.default.owner }}"
+      repository: "{{ .github.default.repository }}"
+      token: "{{ requiredEnv .github.default.token }}"
+      username: "{{ .github.default.username }}"
+      branch: "{{ .github.default.branch }}"
+
+actions:
+  helm-charts:
+    kind: "github/pullrequest"
+    scmid: "helm-charts"
+    spec:
+      labels:
+        - "dependencies"
+        - "aoi"
+
+
+# Defines condition that must pass in order to update targets
+conditions:
+  dockerImage:
+    name: 'Check that docker.io/victoriametrics/vmagent:{{ source "aoi" }} is published'
+    kind: "dockerimage"
+    spec:
+      image: "docker.io/victoriametrics/vmagent"
+      architecture: "amd64"
+
+
+# Defines what needs to be udpated if needed
+targets:
+  imageTag:
+    name: "Update victoriametrics/vmagent version in chart aoi"
+    kind: "yaml"
+    scmid: "helm-charts"
+    spec:
+      file: "charts/aoi.values.yaml"
+      key: "$.prometheus.aoi.tag"
