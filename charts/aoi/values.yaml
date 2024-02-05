@@ -18,7 +18,6 @@ global:
     capabilities:
       drop:
         - all
-
 dashboards:
   bootstrapConfig:
     git:
@@ -32,7 +31,6 @@ dashboards:
     externalSecretsStore: {}
   projectBootstrap:
     git: {}
-
 authProxy:
   enabled: true
   replicas: 1
@@ -68,13 +66,11 @@ authProxy:
   topologySpauthProxyConstraints: []
   tolerations: []
   podManagementPolicy: "Parallel"
-
-
 prometheus:
   image:
     registry: docker.io
     repository: victoriametrics/vmagent
-    tag: v1.91.2
+    tag: latest@sha256:1c9583e7bfaed05637f2dbe37bbab669947f5b4994e1070142ce659903761191
   resources:
     limits:
       memory: 768Mi
@@ -106,7 +102,6 @@ prometheus:
         memory: 25Mi
   extraVolumes: []
   extraVolumeMounts: []
-
 promxy:
   replicas: 1
   image:
@@ -167,14 +162,11 @@ promxy:
           ignore_error: true
           remote_read: true
           remote_read_path: /api/v1
-
-
 externalSecret:
   vaultServer: null
   vaultPath: null
   vaultMountPath: null
   vaultDataFromKey: null
-
 grafana:
   enabled: true
   image:
@@ -207,8 +199,6 @@ grafana:
   ingress:
     enabled: false
     fqdn: null
-
-
 victoria-metrics-single-1:
   rbac:
     create: false
@@ -247,7 +237,6 @@ victoria-metrics-single-1:
       enabled: true
       extraLabels:
         netic.dk/monitoring: "true"
-
 victoria-metrics-single-2:
   rbac:
     create: false
