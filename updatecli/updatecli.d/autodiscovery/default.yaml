@@ -10,16 +10,6 @@ autodiscovery:
       versionfilter:
         kind: semver
 
-# Defines condition that must pass in order to update targets
-conditions:
-  dockerImage:
-    name: 'Check that docker.io/victoriametrics/vmagent:{{ source "aoi" }} is published'
-    kind: "dockerimage"
-    spec:
-      image: "docker.io/victoriametrics/vmagent"
-      architecture: "amd64"
-
-
 # Defines what needs to be udpated if needed
 targets:
   imageTag:
@@ -28,7 +18,7 @@ targets:
     scmid: "default"
     spec:
       file: "charts/aoi.values.yaml"
-      key: "$.prometheus.aoi.tag"
+      key: "$.promxy.aoi.tag"
 
 scms:
   default:
