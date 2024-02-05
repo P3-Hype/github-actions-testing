@@ -17,7 +17,7 @@ scms:
       user: "{{ .github.aoi.user }}"
       email: "{{ .github.aoi.email }}"
       owner: "{{ .github.aoi.owner }}"
-      repository: "github-actions-testing"
+      repository: "{{ .github.aoi.repository }}"
       token: "{{ .github.aoi.token }}"
       username: "{{ .github.aoi.username }}"
       branch: "{{ .github.aoi.branch }}"
