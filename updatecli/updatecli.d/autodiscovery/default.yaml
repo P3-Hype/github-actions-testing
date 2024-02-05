@@ -10,16 +10,6 @@ autodiscovery:
       versionfilter:
         kind: semver
 
-# Defines what needs to be udpated if needed
-targets:
-  imageTag:
-    name: "Update victoriametrics/vmagent version in chart aoi"
-    kind: "yaml"
-    scmid: "default"
-    spec:
-      file: "charts/aoi/values.yaml"
-      key: "$.promxy.image.tag"
-
 scms:
   default:
     kind: "github"

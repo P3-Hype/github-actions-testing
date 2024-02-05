@@ -29,7 +29,7 @@ conditions:
     name: 'Check that docker.io/victoriametrics/vmagent:{{ source "aoi" }} is published'
     kind: "dockerimage"
     spec:
-      image: "quay.io/jacksontj/promxy"
+      image: "docker.io/victoriametrics/vmagent"
       architecture: "amd64"
 
 
@@ -41,4 +41,4 @@ targets:
     scmid: "helm-charts"
     spec:
       file: "charts/aoi/values.yaml"
-      key: "$.promxy.image.tag"
+      key: "$.prometheus.image.tag"
