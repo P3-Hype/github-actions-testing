@@ -10,6 +10,26 @@ autodiscovery:
       versionfilter:
         kind: semver
 
+# Defines condition that must pass in order to update targets
+conditions:
+  dockerImage:
+    name: 'Check that docker.io/victoriametrics/vmagent:{{ source "aoi" }} is published'
+    kind: "dockerimage"
+    spec:
+      image: "docker.io/victoriametrics/vmagent"
+      architecture: "amd64"
+
+
+# Defines what needs to be udpated if needed
+targets:
+  imageTag:
+    name: "Update victoriametrics/vmagent version in chart aoi"
+    kind: "yaml"
+    scmid: "helm-charts"
+    spec:
+      file: "charts/aoi.values.yaml"
+      key: "$.prometheus.aoi.tag"
+
 scms:
   default:
     kind: "github"
