@@ -3,14 +3,10 @@ name: "Bump aoi test version"
 
 sources:
   aoi:
-    kind: "githubrelease"
+    kind: "dockerdigest"
     spec:
-      owner: "{{ .github.default.owner }}"
-      repository: "{{ .github.default.repository }}"
-      token: "{{ requiredEnv .github.default.token }}"
-      username: "{{ .github.default.username }}"
-      versionfilter:
-        kind: latest
+      image: "victoriametrics/vmagent"
+      tag: "latest"
 
 # Defines condition that must pass in order to update targets
 conditions:
