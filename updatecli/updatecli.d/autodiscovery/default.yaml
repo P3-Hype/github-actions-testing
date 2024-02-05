@@ -14,13 +14,13 @@ scms:
   default:
     kind: "github"
     spec:
-      user: "{{ .github.aoi.user }}"
-      email: "{{ .github.aoi.email }}"
-      owner: "{{ .github.aoi.owner }}"
-      repository: "{{ .github.aoi.repository }}"
-      token: "{{ requiredEnv .github.aoi.token }}"
-      username: "{{ .github.aoi.username }}"
-      branch: "{{ .github.aoi.branch }}"
+      user: "{{ .github.default.user }}"
+      email: "{{ .github.default.email }}"
+      owner: "{{ .github.default.owner }}"
+      repository: "{{ .github.default.repository }}"
+      token: "{{ requiredEnv .github.default.token }}"
+      username: "{{ .github.default.username }}"
+      branch: "{{ .github.default.branch }}"
 
 actions:
   default:
