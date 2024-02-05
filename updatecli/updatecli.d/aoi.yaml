@@ -2,8 +2,8 @@
 name: "Bump aoi test version"
 
 sources:
-  lastGithubRelease:
-    kind: githubrelease
+  aoi:
+    kind: "githubrelease"
     spec:
       owner: "{{ .github.default.owner }}"
       repository: "{{ .github.default.repository }}"
