@@ -27,45 +27,9 @@ jobs:
        uses: updatecli/updatecli-action@v2
  
      - name: Check for updates to apply
-       run: "updatecli apply --config ./updatecli/updatecli.d --values ./updatecli/values.yaml"
+       run: |
+         "updatecli apply --config ./updatecli/updatecli.d --values ./updatecli/values.yaml"
+         echo "${{ UPDATECLI_GITHUB_ACTOR }}"
        env:
          UPDATECLI_GITHUB_ACTOR: ${{ github.actor }}
          UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-     - name: Set up Git
-       run: |
-         git config --global user.email "srams@cyber-wizard.com"
-         git config --global user.name "Srams-Bertha"
-         git config --global --add --bool push.autoSetupRemote true
-
-     - name: Create Branch
-       run: |
-         helm_version=$(yq '.name' charts/aoi/Chart.yaml)-$(yq '.version' charts/aoi/Chart.yaml)
-         branch=feature/upgrade-helm-charts-minors-$helm_version
-         if git ls-remote | grep "$branch"; then
-           echo Remove existing branch $branch
-           git push origin --delete $branch
-           echo Create new branch $branch 
-           git checkout -b $branch
-         else
-           echo Create new branch $branch
-           git checkout -b $branch
-         fi
-         echo "{HELM_BRANCH}={$branch}" >> $GITHUB_ENV
-
-     - name: Commit and Push Changes
-       run: |
-         # - Update Helm charts
-         git add .
-         git commit -m "feat: upgrade helm charts"
-         git push origin ${{ env.HELM_BRANCH }}
-     
-     - name: Create Pull Request
-       run: |
-         gh pr create --base main \
-                       --head "${{ env.HELM_BRANCH }}" \
-                       --title "chore: upgrade helm charts minor versions" \
-                       --body "Automatic upgrade of helm chart minor versions using https://github.com/updatecli/updatecli" \
-                       --reviewer MathiasFM
-       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
