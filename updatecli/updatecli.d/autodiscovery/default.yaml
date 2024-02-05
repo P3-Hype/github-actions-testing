@@ -17,8 +17,8 @@ targets:
     kind: "yaml"
     scmid: "default"
     spec:
-      file: "charts/aoi.values.yaml"
-      key: "$.promxy.aoi.tag"
+      file: "charts/aoi/values.yaml"
+      key: "$.promxy.image.tag"
 
 scms:
   default:
