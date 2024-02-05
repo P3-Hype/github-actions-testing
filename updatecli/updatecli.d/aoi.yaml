@@ -1,27 +1,6 @@
 ---
 name: "Bump aoi test version"
 
-scms:
-  helm-charts:
-    kind: "github"
-    spec:
-      user: "{{ .github.default.user }}"
-      email: "{{ .github.default.email }}"
-      owner: "{{ .github.default.owner }}"
-      repository: "{{ .github.default.repository }}"
-      token: "{{ requiredEnv .github.default.token }}"
-      username: "{{ .github.default.username }}"
-      branch: "{{ .github.default.branch }}"
-
-actions:
-  helm-charts:
-    kind: "github/pullrequest"
-    scmid: "helm-charts"
-    spec:
-      labels:
-        - "dependencies"
-        - "aoi"
-
 sources:
   lastGithubRelease:
     kind: githubrelease
@@ -52,3 +31,16 @@ targets:
     spec:
       file: "charts/aoi/values.yaml"
       key: "$.prometheus.image.tag"
+
+scms:
+  helm-charts:
+    kind: "github"
+    spec:
+      user: "{{ .github.default.user }}"
+      email: "{{ .github.default.email }}"
+      owner: "{{ .github.default.owner }}"
+      repository: "{{ .github.default.repository }}"
+      token: "{{ requiredEnv .github.default.token }}"
+      username: "{{ .github.default.username }}"
+      branch: "{{ .github.default.branch }}"
+    disabled: false
