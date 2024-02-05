@@ -14,6 +14,6 @@ dependencies:
     repository: https://victoriametrics.github.io/helm-charts/
   - name: victoria-metrics-single
     alias: victoria-metrics-single-2
-    version: 0.9.12
+    version: 0.9.15
     repository: https://victoriametrics.github.io/helm-charts/
     condition: global.tsdb.high_availability.enabled
