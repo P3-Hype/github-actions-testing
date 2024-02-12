@@ -15,5 +15,8 @@ jobs:
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
           LOG_LEVEL: "debug"
-          RENOVATE_REPOSITORIES: "P3-Hype/github-actions-testing"
+          RENOVATE_REPOSITORIES: "${{ github.repository }}"
           RENOVATE_AUTODISCOVER: "false"
+          RENOVATE_ONBOARDING: "false"
+          RENOVATE_USERNAME: "41898282+github-actions[bot]"
+          RENOVATE_GIT_AUTHOR: "41898282+github-actions[bot]@users.noreply.github.com"
