@@ -1,7 +1,6 @@
 name: Renovate
 on:
   workflow_dispatch:
-  push:
 
 jobs:
   renovate:
@@ -16,4 +15,5 @@ jobs:
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
           LOG_LEVEL: "debug"
+          RENOVATE_REPOSITORIES: "P3-Hype/github-actions-testing"
           RENOVATE_AUTODISCOVER: "false"
