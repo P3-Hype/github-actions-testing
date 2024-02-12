@@ -74,7 +74,7 @@ prometheus:
   image:
     registry: docker.io
     repository: victoriametrics/vmagent
-    tag: v1.91.2
+    tag: v1.97.1@sha256:5de26b0b258383051cfe3bc96e57581d79b6c5b90a30603923475263db9e1ae6
   resources:
     limits:
       memory: 768Mi
