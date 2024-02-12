@@ -112,7 +112,7 @@ promxy:
   image:
     registry: quay.io
     repository: jacksontj/promxy
-    tag: v0.0.84
+    tag: v0.0.83
   priorityClassName: null
   annotations: {}
   podAnnotations: {}
