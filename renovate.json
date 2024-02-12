@@ -3,7 +3,7 @@
   "extends": [
     "config:best-practices",
     ":disableRateLimiting",
-    ":disableDependencyDashboard",
+    ":disableDependencyDashboard"
   ],
   "helm-values": {
     "fileMatch": [
