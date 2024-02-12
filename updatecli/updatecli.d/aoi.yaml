@@ -5,7 +5,7 @@ sources:
   aoi:
     kind: "dockerdigest"
     spec:
-      image: "victoriametrics/vmagent"
+      image: "victoriametrics/vmagent@sha256:07ba3b9f7fc54e28efe7dcc65ac44e7ed62ba089350bf1370f744326f9533d64"
       tag: "latest"
 
 
@@ -15,7 +15,7 @@ conditions:
     name: 'Check that docker.io/victoriametrics/vmagent:{{ source "aoi" }} is published'
     kind: "dockerimage"
     spec:
-      image: "victoriametrics/vmagent"
+      image: "victoriametrics/vmagent@sha256:07ba3b9f7fc54e28efe7dcc65ac44e7ed62ba089350bf1370f744326f9533d64"
       architecture: "linux/amd64"
 
 
