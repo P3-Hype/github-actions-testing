@@ -74,7 +74,7 @@ prometheus:
   image:
     registry: docker.io
     repository: victoriametrics/vmagent
-    tag: v1.91.2
+    tag: v1.91.2@sha256:52607ea92fa5677532c0d179cba9d6ed1b6c7fe48081b83dffe0435fa4be13f4
   resources:
     limits:
       memory: 768Mi
@@ -112,7 +112,7 @@ promxy:
   image:
     registry: quay.io
     repository: jacksontj/promxy
-    tag: v0.0.83
+    tag: v0.0.83@sha256:5a53ac7594dd9e57efc4a537ed1db3766fba9334fe1fd9343cfffc5c64faa5cc
   priorityClassName: null
   annotations: {}
   podAnnotations: {}
