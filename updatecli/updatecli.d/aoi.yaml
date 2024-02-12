@@ -1,5 +1,5 @@
 ---
-name: "Bump aoi test version"
+name: "Bump vmagent Version"
 
 sources:
   aoi:
@@ -7,6 +7,7 @@ sources:
     spec:
       image: "victoriametrics/vmagent"
       tag: "latest"
+
 
 # Defines condition that must pass in order to update targets
 conditions:
