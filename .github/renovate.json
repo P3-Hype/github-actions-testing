@@ -14,10 +14,5 @@
     "fileMatch": [
       "(^|/)Chart\\.ya?ml$"
     ]
-  },
-  "baseBranches": ["main"],
-  "rebaseWhen": "conflicted",
-  "labels": ["dependencies"],
-  "automergeStrategy": "merge-commit",
-  "prHourlyLimit": 0 
+  }
 }
