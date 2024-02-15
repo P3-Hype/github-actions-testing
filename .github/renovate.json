@@ -14,5 +14,6 @@
     "fileMatch": [
       "(^|/)Chart\\.ya?ml$"
     ]
-  }
+  },
+  "rangeStrategy": "bump"
 }
