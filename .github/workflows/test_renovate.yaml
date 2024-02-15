@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
       - name: Renovate-dry-run
-        uses: renovatebot/github-action@v40.0.3
+        uses: renovatebot/github-action@2d90417499f45ff78a09586f7b9874b19817dba3 # v40.1.0
         with:
           renovate-version: 37.175.3
           token: ${{ secrets.RENOVATE_TOKEN }}
